@@ -1,0 +1,66 @@
+<div>
+    <div>
+        <form>
+            <div class="input">
+                <div class="Exercise">
+                    <p>Enter Excercise Name :</p>
+                    <input [(ngModel)]="Name" placeholder="Enter Exercise name here" name="Name">
+                </div>
+                <div class="Date">
+                    <p>Enter Date:</p>
+                    <input [(ngModel)]="e_date" placeholder="Add Date here" name="e_date">
+                </div>
+                <div class="Description">
+                    <p>Enter Description :</p>
+                    <input [(ngModel)]="Description" placeholder="Add Description here" name="Description">
+                </div>
+                <div class="Duration">
+                    <p>Enter Duration :</p>
+                    <input [(ngModel)]="e_dur" placeholder="Add the Duration of the routine in hours" name="e_dur">
+                </div>
+                <div class="Repetition">
+                    <p>Enter no. of Repetitions :</p>
+                    <input [(ngModel)]="e_reps" placeholder="Add the no. of Repetitions for this routine" name="e_reps">
+                </div>
+                <div class="Category">
+                    <p>Enter Category :</p>
+                    <input [(ngModel)]="e_cat" placeholder="Free hand or Equipment" name="e_cat">
+                </div>
+                <button type="submit" *ngIf="Name !== ''" (click)="addItem($Exercise)">Add Task</button>
+            </div>
+        </form>
+    </div>
+
+    <ul>
+        <li *ngFor="let e of eList; let i=index">
+            <mat-card>
+                <app-list [title]='e.Name'></app-list>
+                <mat-card-subtitle><strong>Details</strong></mat-card-subtitle>
+                <mat-card-content>
+                    <table class="e-table">
+                        <thead>
+                            <tr>
+                                <th>S.no.</th>
+                                <th>Exercise</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Duration</th>
+                                <th>Repetition</th>
+                                <th>Category</th>
+                            </tr>
+                            <tr>
+                                <td>{{i+1}}</td>
+                                <td>{{e.Name}}</td>
+                                <td>{{e.e_date}}</td>
+                                <td>{{e.Description}}</td>
+                                <td>{{e.e_dur}}</td>
+                                <td>{{e.e_reps}}</td>
+                                <td>{{e.e_cat}}</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </li>
+    </ul>
+</div> 
